@@ -25,6 +25,49 @@ public class Solution_125 {
         return s.equalsIgnoreCase(reverse.toString());
     }
 
+    // 基于双指针实现
+    public boolean isPalindromeByDoublePointer(String s){
+        StringBuffer buffer = new StringBuffer();
+        int len = s.length();
+        for (int i = 0; i < len; i++) {
+            char c = s.charAt(i);
+            if (Character.isLetterOrDigit(c)){
+                buffer.append(c);
+            }
+        }
+        int left = 0;
+        int right = buffer.length() - 1;
+        while (left < right){
+            if (Character.toLowerCase(buffer.charAt(left)) != Character.toLowerCase(buffer.charAt(right))){
+                return false;
+            }
+            left++;
+            right--;
+        }
+        return true;
+    }
+
+    // 在原字符串上直接判断
+    public boolean isPalindromeByDoublePointerAndSource(String s){
+        int left = 0, right = s.length() - 1;
+        while (left < right){
+            while (left<right && !Character.isLetterOrDigit(s.charAt(left))){
+                left++;
+            }
+            while (left<right && !Character.isLetterOrDigit(s.charAt(right))){
+                right--;
+            }
+            if (left < right) {
+                if (Character.toLowerCase(s.charAt(left)) != Character.toLowerCase(s.charAt(right))){
+                    return false;
+                }
+                left++;
+                right--;
+            }
+        }
+        return true;
+    }
+
     public String _filterNoNumAndChar(String s){
         return s.replaceAll("[^0-9a-zA-Z]", "");
     }
