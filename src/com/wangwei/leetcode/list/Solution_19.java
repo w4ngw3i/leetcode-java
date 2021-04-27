@@ -2,6 +2,8 @@ package com.wangwei.leetcode.list;
 
 import java.util.Deque;
 import java.util.LinkedList;
+
+
 /**
  * @Author wangwei
  * @Date 2021/4/17 12:56 下午
@@ -15,6 +17,29 @@ import java.util.LinkedList;
  *  输出：[]
  */
 public class Solution_19 {
+
+    // 暴力解法
+    public ListNode removeNthFromEndByBC(ListNode head, int n) {
+        if (head == null)
+            return head;
+        ListNode dummy = new ListNode(-1, head);
+        int length = getLength(head);
+        ListNode cur = dummy;
+        for (int i = 1; i < length - n + 1; i++) {
+            cur = cur.next;
+        }
+        cur.next = cur.next.next;
+        return dummy.next;
+    }
+
+    public int getLength(ListNode listNode){
+        int length = 0;
+        while (listNode != null){
+            length++;
+            listNode = listNode.next;
+        }
+        return length;
+    }
 
     // 快慢双双指针解法
     public ListNode removeNthFromEnd(ListNode head, int n) {
@@ -52,6 +77,7 @@ public class Solution_19 {
     public static void main(String[] args) {
         Solution_19 solution = new Solution_19();
         int[] arr = {1,2,3,4,5};
+        System.out.println(solution.removeNthFromEndByBC(new ListNode(arr), 1));
         System.out.println(solution.removeNthFromEnd(new ListNode(arr), 1));
 
         System.out.println(solution.removeNthFromEndByStack(new ListNode(arr), 1));

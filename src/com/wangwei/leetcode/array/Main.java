@@ -1,5 +1,8 @@
 package com.wangwei.leetcode.array;
 
+
+import com.wangwei.datastructure.array.Array;
+
 /**
  * @Author wangwei
  * @Date 2021/4/17 10:20 下午

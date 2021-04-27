@@ -63,7 +63,7 @@ public class Solution_203 {
     public static void main(String[] args) {
         Solution_203 solution_203 = new Solution_203();
         int[] arr = {1,2,6,3,4,5,6};
-        System.out.println(solution_203.removeElementsByRecursion(new ListNode(arr), 1));
+        System.out.println(solution_203.removeElementsByRecursion(new ListNode(arr), 6));
         System.out.println(solution_203.removeElementsNoRecursion(new ListNode(arr), 1));
         System.out.println(solution_203.removeElementsByDummyHead(new ListNode(arr), 1));
     }

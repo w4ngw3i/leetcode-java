@@ -1,4 +1,4 @@
-package com.wangwei.datastructure.array.leetcode.solution_1;
+package com.wangwei.leetcode.array.solution_1;
 
 /**
  * @auther wangwei

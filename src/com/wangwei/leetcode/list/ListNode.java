@@ -25,8 +25,8 @@ public class ListNode {
         if (arr == null || arr.length ==0){
             throw new IllegalArgumentException("参数非法");
         }
-        this.val = arr[0];
         ListNode cur = this;
+        cur.val = arr[0];
         for (int i = 1; i < arr.length; i++) {
             cur.next = new ListNode(arr[i]);
             cur = cur.next;

@@ -1,4 +1,4 @@
-package com.wangwei.datastructure.array.leetcode.solution_15;
+package com.wangwei.leetcode.array.solution_15;
 
 import java.util.*;
 

@@ -1,4 +1,4 @@
-package com.wangwei.datastructure.array.leetcode.solution_350;
+package com.wangwei.leetcode.array.solution_350;
 
 import java.util.ArrayList;
 import java.util.TreeMap;
