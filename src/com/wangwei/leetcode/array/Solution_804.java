@@ -1,4 +1,4 @@
-package com.wangwei.leetcode.array.solution_804;
+package com.wangwei.leetcode.array;
 
 import java.util.TreeSet;
 
@@ -36,7 +36,7 @@ import java.util.TreeSet;
  * 每个单词 words[i]的长度范围为 [1, 12]。
  * 每个单词 words[i]只包含小写字母。
  */
-public class Solution {
+public class Solution_804 {
 
     public int uniqueMorseRepresentations(String[] words) {
         String[] codes = {".-", "-...", "-.-.", "-..", ".", "..-.", "--.", "....", "..", ".---", "-.-", ".-..", "--", "-.", "---", ".--.", "--.-", ".-.", "...", "-", "..-", "...-", ".--", "-..-", "-.--", "--.."};
@@ -58,6 +58,6 @@ public class Solution {
 
         String[] words = new String[]{"gin", "zen", "gig", "msg"};
 
-        System.out.println(new Solution().uniqueMorseRepresentations(words));
+        System.out.println(new Solution_804().uniqueMorseRepresentations(words));
     }
 }

@@ -1,4 +1,4 @@
-package com.wangwei.leetcode.array.solution_350;
+package com.wangwei.leetcode.array;
 
 import java.util.ArrayList;
 import java.util.TreeMap;
@@ -26,7 +26,7 @@ import java.util.TreeMap;
  * 如果 nums1 的大小比 nums2 小很多，哪种方法更优？
  * 如果 nums2 的元素存储在磁盘上，磁盘内存是有限的，并且你不能一次加载所有的元素到内存中，你该怎么办？
  */
-public class Solution {
+public class Solution_350 {
     public int[] intersect(int[] nums1, int[] nums2) {
         TreeMap<Integer, Integer> map = new TreeMap<>();
         for (int num : nums1) {
@@ -58,7 +58,7 @@ public class Solution {
     public static void main(String[] args) {
         int[] nums1 = new int[]{4,9,5};
         int[] nums2 = new int[]{9,4,9,8,4};
-        int[] arr = new Solution().intersect(nums1, nums2);
+        int[] arr = new Solution_350().intersect(nums1, nums2);
         System.out.print("[");
         for (int i = 0; i < arr.length; i++) {
             if (i != arr.length-1)

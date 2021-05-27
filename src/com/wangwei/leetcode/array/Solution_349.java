@@ -1,4 +1,4 @@
-package com.wangwei.leetcode.array.solution_349;
+package com.wangwei.leetcode.array;
 
 import java.util.ArrayList;
 import java.util.TreeSet;
@@ -22,7 +22,7 @@ import java.util.TreeSet;
  * 输出结果中的每个元素一定是唯一的。
  * 我们可以不考虑输出结果的顺序。
  */
-public class Solution {
+public class Solution_349 {
     public int[] intersection(int[] nums1, int[] nums2) {
         TreeSet<Integer> set = new TreeSet<>();
         for (int num : nums1) {
@@ -51,7 +51,7 @@ public class Solution {
 //        int[] nums2 = new int[]{9,4,9,8,4};
         int[] nums1 = new int[]{1,2,2,1};
         int[] nums2 = new int[]{2,2};
-        int[] arr = new Solution().intersection(nums1, nums2);
+        int[] arr = new Solution_349().intersection(nums1, nums2);
         System.out.print("[");
         for (int i = 0; i < arr.length; i++) {
             if (i != arr.length-1)

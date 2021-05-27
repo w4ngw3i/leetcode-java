@@ -1,4 +1,4 @@
-package com.wangwei.leetcode.array.solution_15;
+package com.wangwei.leetcode.array;
 
 import java.util.*;
 
@@ -18,7 +18,7 @@ import java.util.*;
  *   [-1, -1, 2]
  * ]
  */
-public class Solution {
+public class Solution_15 {
     public List<List<Integer>> threeSum(int[] nums) {
         List<List<Integer>> res = new LinkedList<>();
         Arrays.sort(nums);
@@ -57,7 +57,7 @@ public class Solution {
 
     public static void main(String[] args) {
         int[] nums = new int[]{-1, 0, 1, 2, -1, -4};
-        List<List<Integer>> lists = new Solution().threeSum(nums);
+        List<List<Integer>> lists = new Solution_15().threeSum(nums);
         System.out.println(lists);
     }
 }

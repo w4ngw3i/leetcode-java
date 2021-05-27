@@ -1,4 +1,4 @@
-package com.wangwei.leetcode.array.solution_1;
+package com.wangwei.leetcode.array;
 
 /**
  * @auther wangwei
@@ -15,7 +15,7 @@ package com.wangwei.leetcode.array.solution_1;
  * 因为 nums[0] + nums[1] = 2 + 7 = 9
  * 所以返回 [0, 1]
  */
-public class Solution {
+public class Solution_1 {
     public int[] twoSum(int[] nums, int target) {
         for (int i = 0; i < nums.length - 1; i++) {
             for (int j = i+1; j<nums.length; j++){
@@ -31,7 +31,7 @@ public class Solution {
         int[] nums = new int[]{2, 7, 11, 15};
         int[] nums2 = new int[]{3,2,4};
 
-        int[] ints = new Solution().twoSum(nums2, 6);
+        int[] ints = new Solution_1().twoSum(nums2, 6);
 
         System.out.print("[");
 
