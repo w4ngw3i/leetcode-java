@@ -22,6 +22,33 @@ public class Solution_125_1 {
     public boolean isPalindrome(String s) {
         String filteredS = _filterNonNumberAndChar(s);
         return _reverseString(filteredS).equalsIgnoreCase(filteredS);
+        //String s1 = filterNonNumberAndChar(s);
+        //return isPal(s1);
+    }
+
+    public static boolean isPal(String s) {
+        s = s.toLowerCase();
+        char[] chars = s.toCharArray();
+        for (int i = 0, j = chars.length - 1; i < j; i++, j--) {
+            if (chars[i] != chars[j]) {
+                return false;
+            }
+        }
+        return true;
+    }
+
+    public static String filterNonNumberAndChar(String s) {
+        if (s == null || s.isEmpty()) {
+            return s;
+        }
+        StringBuilder builder = new StringBuilder(s.length());
+        char[] chars = s.toCharArray();
+        for (char aChar : chars) {
+            if (Character.isDigit(aChar) || Character.isLetter(aChar)) {
+                builder.append(aChar);
+            }
+        }
+        return builder.toString();
     }
 
     private String _reverseString(String filteredS) {
@@ -34,6 +61,7 @@ public class Solution_125_1 {
 
     public static void main(String[] args) {
         Solution_125_1 solution1251 = new Solution_125_1();
-        solution1251.isPalindrome("a -b a");
+        boolean palindrome = solution1251.isPalindrome("A man, a plan, a canal: Panama");
+        System.out.println("palindrome = " + palindrome);
     }
 }
