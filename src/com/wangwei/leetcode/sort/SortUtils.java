@@ -11,6 +11,7 @@ public class SortUtils {
     public static void bubbleSort(int[] arr){
         if (arr.length <= 1)
             return;
+        int count = 0;
         for (int i = 0; i < arr.length; i++) {
             boolean flag = false;
             for (int j = 0; j < arr.length - i -1; j++){
@@ -19,11 +20,14 @@ public class SortUtils {
                     arr[j] = arr[j+1];
                     arr[j+1] = temp;
                     flag = true;
+                    count++;
                 }
             }
             if (!flag)
-                break;;
+                break;
+
         }
+        System.out.println("count = " + count);
     }
 
     // 插入排序
@@ -71,11 +75,12 @@ public class SortUtils {
     }
 
     public static void main(String[] args) {
-        int[] arr = new int[]{5, 3, 9, 2, 1, 32, 17, 78};
+        //int[] arr = new int[]{5, 3, 9, 2, 1, 32, 17, 78};
+        int[] arr = new int[]{6, 5, 4, 3, 2, 1};
         printArr(arr);
-        //bubbleSort(arr);
+        bubbleSort(arr);
         //insertSort(arr);
-        selectSort(arr);
+        //selectSort(arr);
         printArr(arr);
     }
 }

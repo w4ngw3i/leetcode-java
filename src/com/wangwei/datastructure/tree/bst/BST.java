@@ -44,33 +44,58 @@ public class BST<E extends Comparable<E>>{
     }
 
     private Node add(Node node, E e){
-        //if (node.e.compareTo(e) == 0){
-        //    return;
-        //}
-        //if (node.e.compareTo(e) < 0 && node.left == null){
-        //    node.left = new Node(e);
-        //    size++;
-        //}
-        //if (node.e.compareTo(e) > 0 && node.right == null){
-        //    node.right = new Node(e);
-        //    size++;
-        //}
-        //if (node.e.compareTo(e) < 0){
-        //    add(node.left, e);
-        //}
-        //if (node.e.compareTo(e) > 0){
-        //    add(node.right, e);
-        //}
-        if (node == null){
+        if (node == null) {
             size++;
             return new Node(e);
         }
-        if (e.compareTo(node.e) < 0){
-            node.left = add(node.left, e);
-        }else if (e.compareTo(node.e) > 0){
-            node.right = add(node.right, e);
+        Node cur = node;
+        while (cur != null) {
+            if (e.compareTo(cur.e) > 0) {
+                if (cur.right == null) {
+                    cur.right = new Node(e);
+                    size++;
+                    return cur;
+                }
+                cur = cur.right;
+            }else {
+                if (cur.left == null) {
+                    cur.left = new Node(e);
+                    size++;
+                    return cur;
+                }
+                cur = cur.left;
+            }
         }
-        return node;
+        return cur;
+
+//        实现方式一
+/*        if (node.e.compareTo(e) == 0){
+            return;
+        }
+        if (node.e.compareTo(e) < 0 && node.left == null){
+            node.left = new Node(e);
+            size++;
+        }
+        if (node.e.compareTo(e) > 0 && node.right == null){
+            node.right = new Node(e);
+            size++;
+        }
+        if (node.e.compareTo(e) < 0){
+            add(node.left, e);
+        }
+        if (node.e.compareTo(e) > 0){
+            add(node.right, e);
+        }*/
+        //if (node == null){
+        //    size++;
+        //    return new Node(e);
+        //}
+        //if (e.compareTo(node.e) < 0){
+        //    node.left = add(node.left, e);
+        //}else if (e.compareTo(node.e) > 0){
+        //    node.right = add(node.right, e);
+        //}
+        //return node;
     }
 
     public boolean contains(E e){
@@ -89,6 +114,20 @@ public class BST<E extends Comparable<E>>{
         }else {
             return contains(node.right, e);
         }
+    }
+
+    public Node find(E data) {
+        Node cur = root;
+        while (root != null) {
+            if (data.compareTo(cur.e) > 0){
+                cur = cur.right;
+            }else if (data.compareTo(cur.e) < 0) {
+                cur = cur.left;
+            }else {
+                return cur;
+            }
+        }
+        return null;
     }
 
     // 层序遍历

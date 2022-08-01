@@ -31,8 +31,8 @@ public class PatternDemo {
         // 取以任意字符开头 查找以b起始中间是任意字符b结尾的字符串 ():取子串内容 .*: 任意字符 ?:强制从前往后遍历
         //Pattern pattern = Pattern.compile(".*?(b.*?b).*");
 
-        // + 表示b和b之间至少出现一次或多次
-        Pattern pattern = Pattern.compile(".*?(b.+b).*");
+        // + 表示b和b之间至少出现一次或多次 ?可以表示从前面匹配，也可以表示取消贪婪匹配 （）：表示提取子串
+        Pattern pattern = Pattern.compile(".*?(b.+?b).*");
         Matcher matcher = pattern.matcher(str);
         System.out.println(matcher.groupCount());
         while (matcher.find()){
@@ -48,10 +48,10 @@ public class PatternDemo {
         // [^1]表示只要不是1出现9次就可以 [.*]括号内没有任何意义仅代表本身
         Pattern pattern2 = Pattern.compile("1[86735][^1]{9}");
 
-        String name = "王w_伟";
+        String name = "王w伟";
         // \s：匹配空格 \S:匹配非空格 \w=[a-zA-Z0-9_]  \W:相反
         //Pattern nPattern = Pattern.compile("(王\\S+伟)");
-        Pattern nPattern = Pattern.compile("(王\\W+伟)");
+        Pattern nPattern = Pattern.compile("(王\\w+伟)");
         Matcher nMatcher = nPattern.matcher(name);
         while (nMatcher.find()){
             System.out.println(nMatcher.group(1));

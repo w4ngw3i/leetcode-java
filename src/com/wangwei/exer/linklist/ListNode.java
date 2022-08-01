@@ -33,7 +33,7 @@ public class ListNode {
         StringBuilder builder = new StringBuilder();
         ListNode cur = this;
         while (cur != null) {
-            builder.append(cur.val + "->");
+            builder.append(cur.val).append("->");
             cur = cur.next;
 //            if (cur.next != null)
 //                builder.append(cur.val + "->");
