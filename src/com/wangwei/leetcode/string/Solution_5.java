@@ -65,6 +65,7 @@ public class Solution_5 {
 
     public static void main(String[] args) {
         String s = longestPalindrome("babad");
+
         //String s = longestPalindrome("cbbd");
         System.out.println(s);
     }

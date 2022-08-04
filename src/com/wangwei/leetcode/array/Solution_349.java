@@ -1,7 +1,6 @@
 package com.wangwei.leetcode.array;
 
-import java.util.ArrayList;
-import java.util.TreeSet;
+import java.util.*;
 
 /**
  * @auther wangwei
@@ -24,33 +23,50 @@ import java.util.TreeSet;
  */
 public class Solution_349 {
     public int[] intersection(int[] nums1, int[] nums2) {
-        TreeSet<Integer> set = new TreeSet<>();
-        for (int num : nums1) {
-            set.add(num);
+        Set<Integer> set1 = new HashSet<>(),set2 = new HashSet<>();
+        List<Integer> list = new ArrayList<>();
+        for(int i:nums1){
+            list.add(i);
         }
+        for(int i:nums2){
+            set2.add(i);
+        }
+        list.retainAll(set2);
+        return list.stream().distinct().mapToInt(i->i).toArray();
+        //Set<Integer> set1 = new HashSet<>();
+        //Set<Integer> set2 = new HashSet<>();
+        //for (int j : nums1) {
+        //    set1.add(j);
+        //}
+        //for (int i : nums2) {
+        //    set2.add(i);
+        //}
+        //return getIntersection(set1, set2);
+    }
 
-        ArrayList<Integer> list = new ArrayList<>();
-        for (int num : nums2) {
-            if (set.contains(num)){
-                list.add(num);
-                set.remove(num);
+    private int[] getIntersection(Set<Integer> set1, Set<Integer> set2) {
+        if (set1.size() > set2.size()) {
+            getIntersection(set2, set1);
+        }
+        Set<Integer> intersectionSet = new HashSet<>(set1.size());
+        for (Integer integer : set1) {
+            if (set2.contains(integer)) {
+                intersectionSet.add(integer);
             }
         }
-
-        int[] arr = new int[list.size()];
-
-        for (int i = 0; i < list.size(); i++) {
-            arr[i] = list.get(i);
+        int[] arr = new int[intersectionSet.size()];
+        int index = 0;
+        for (Integer num : intersectionSet) {
+            arr[index++] = num;
         }
-
         return arr;
     }
 
     public static void main(String[] args) {
-//        int[] nums1 = new int[]{4,9,5};
-//        int[] nums2 = new int[]{9,4,9,8,4};
-        int[] nums1 = new int[]{1,2,2,1};
-        int[] nums2 = new int[]{2,2};
+        int[] nums1 = new int[]{4,9,5};
+        int[] nums2 = new int[]{9,4,9,8,4};
+//        int[] nums1 = new int[]{1,2,2,1};
+//        int[] nums2 = new int[]{2,2};
         int[] arr = new Solution_349().intersection(nums1, nums2);
         System.out.print("[");
         for (int i = 0; i < arr.length; i++) {
